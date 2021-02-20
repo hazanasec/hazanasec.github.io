@@ -94,8 +94,4 @@ and sure enough, the request was successfully smuggled, and one of the next requ
 
 Although this programme accepted reflected XSS as is, this same approach could have been used to chain together XSS with CSRF or a CORS misconfiguration. If the attack kept being fired, nearly every user who visited the site would receive a poisoned response.
 
-*Reading:*
-
-https://portswigger.net/web-security/request-smuggling
-
-*Thanks to [w31rd0](https://hackerone.com/w31rd0) for alerting me to the potential smuggling.*
+[Extra reading on HTTP Request Smuggling](https://portswigger.net/web-security/request-smuggling)
