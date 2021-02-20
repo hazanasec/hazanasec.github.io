@@ -226,4 +226,4 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-
+remote_theme: "dracula/gh-pages"
