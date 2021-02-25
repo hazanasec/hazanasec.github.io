@@ -2,8 +2,8 @@
 layout: post
 title: Escalating reflected XSS with HTTP Smuggling
 subtitle: Increase impact of XSS
-cover-img: https://i.redd.it/rv9vculjfmj61.jpg
-thumbnail-img: https://i.imgur.com/S3dhyUi.jpg
+cover-img: https://i.imgur.com/S3dhyUi.jpg
+thumbnail-img: https://i.redd.it/rv9vculjfmj61.jpg
 share-img: https://i.imgur.com/S3dhyUi.jpg
 tags: [HTTP Smuggling, XSS, Bug Bounty]
 ---
