@@ -3,7 +3,7 @@ layout: post
 title: Cors Blimey
 subtitle: The power of chaining CORS
 cover-img: https://i.imgur.com/S3dhyUi.jpg
-thumbnail-img: https://i.imgur.com/S3dhyUi.jpg
+thumbnail-img: https://i.redd.it/rv9vculjfmj61.jpg
 share-img: https://i.imgur.com/S3dhyUi.jpg
 tags: [CORS, XSS, Bug Bounty]
 ---
