@@ -22,7 +22,7 @@ Next we will start mubeng with `mubeng -a localhost:8089 -f proxies.txt -r 1 -v`
 
 The next step to dork on steroids is to use [go-dork](https://github.com/dwisiswant0/go-dork) also by [dw1](https://twitter.com/dwisiswant0). To use it in it's basic form `go-dork -s -p 5 -x http://localhost:8089 -q "site:*.example.com dork"`. The `-s` is just to run it silently for a clean output, `-p` is for the number of pages to search, `-x` points it to our mubeng proxy we just started, and finally `-q` is of course where our dork will be. 
 
-This next step is up to how you prefer to automate things and your favorite dorks. In this case I just went with a simple bash script to run dorks with the given input e.g.
+This next step depends how you prefer to automate things and your favorite dorks. In this case I just went with a simple bash script to run dorks with the given input e.g.
 
 ![img](https://i.imgur.com/G4asVbp.png)
 
@@ -36,4 +36,4 @@ And we also get a clean output in our terminal:
 
 
 For a little bonus if the steroids aren't enough, it is also possible to create your own automation dorks which work alongside [nuclei](https://github.com/projectdiscovery/nuclei) by the [ProjectDiscovery](https://twitter.com/pdiscoveryio) team. Create your own dorks for discovery, put the appropriate nuclei-templates into a single directory, and then simply pipe the dorks straight into nuclei pointing at your directory:
-`go-dork -s -p 5 -x http://localhost:8089 -q "site:*.$1 discover dashboard | nuclei -silent -t nuclei-templates/dashboard-vulnerabilities/`
+`go-dork -s -p 5 -x http://localhost:8089 -q "site:*.$1 discover dashboard dork" | nuclei -silent -t nuclei-templates/dashboard-vulnerabilities/`
