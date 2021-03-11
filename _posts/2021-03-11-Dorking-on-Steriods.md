@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dorking on Steroids
-subtitle: Make your life easier
+subtitle: Dorking at scale
 cover-img: https://i.imgur.com/S3dhyUi.jpg
 thumbnail-img: https://i.pinimg.com/236x/20/f2/41/20f241f5dac27b99549425aac78aa12c--vaporwave-art-retro-art.jpg
 share-img: https://i.imgur.com/S3dhyUi.jpg
