@@ -3,7 +3,7 @@ layout: post
 title: Dorking on Steroids
 subtitle: Make your life easier
 cover-img: https://i.imgur.com/S3dhyUi.jpg
-thumbnail-img: https://i.pinimg.com/236x/21/48/0c/21480c1d024dee1a8b45c3cf9339a66b--future-computers-old-computers.jpg
+thumbnail-img: https://i.pinimg.com/236x/20/f2/41/20f241f5dac27b99549425aac78aa12c--vaporwave-art-retro-art.jpg
 share-img: https://i.imgur.com/S3dhyUi.jpg
 tags: [google dorking, dork, Bug Bounty]
 ---
@@ -36,4 +36,4 @@ And we also get a clean output in our terminal:
 
 
 For a little bonus if the steroids aren't enough, it is also possible to create your own automation dorks which work alongside [nuclei](https://github.com/projectdiscovery/nuclei) by the [ProjectDiscovery](https://twitter.com/pdiscoveryio) team. Create your own dorks for discovery, put the appropriate nuclei-templates into a single directory, and then simply pipe the dorks straight into nuclei pointing at your directory:
-`go-dork -s -p 5 -x http://localhost:8089 -q "site:*.$1 discover dashboard | nuclei -silent -t nuclei-templates/dashboard-vulnerabilities`
+`go-dork -s -p 5 -x http://localhost:8089 -q "site:*.$1 discover dashboard | nuclei -silent -t nuclei-templates/dashboard-vulnerabilities/`
