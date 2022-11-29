@@ -60,8 +60,6 @@ Now we know the `<body>` tag is not being blocked or stripped, let's move onto b
 
 This time go back to the cheat sheet and click *Copy events to clipboard*, go back to the *Payloads* tab, clear the previous *Payload Options* and *Paste* in the events and start the attack.
 
-![img](https://i.imgur.com/0zLRZ5x.png)
-
 View the results and if you're lucky again you will get some different responses for certain events:
 
 ![img](https://i.imgur.com/RMnmdno.png)
