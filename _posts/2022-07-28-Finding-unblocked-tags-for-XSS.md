@@ -36,7 +36,7 @@ has it's tags stripped and searching for:
 
 > `0 search results for 'test'`
 
-Thanks to the great work done by [Port Swigger research](https://twitter.com/PortSwiggerRes), we have an comprehnsive and regulary updated (cheat sheet)[https://portswigger.net/web-security/cross-site-scripting/cheat-sheet] for XSS events and tags.
+Thanks to the great work done by [Port Swigger research](https://twitter.com/PortSwiggerRes), we have an comprehensive and regularly updated (cheat sheet)[https://portswigger.net/web-security/cross-site-scripting/cheat-sheet] for XSS events and tags.
 
 Let's go ahead and send the request to Intruder and highlight the input between the tags`< >`
 
