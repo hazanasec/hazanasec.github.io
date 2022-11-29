@@ -56,7 +56,7 @@ View the results and if you're lucky, you might get a few different responses fo
 
 Now we know the `<body>` tag is not being blocked or stripped, let's move onto building the rest of our XSS payload and add an event. Go back to intruder, add `<body` to the value, include a `%20` to include a URL friendly space, and highlight where we will add the event and finaly add a `=` which will be in our final XSS payload:
 
-![img](https://i.imgur.com/PTr0886.png)
+![img](https://i.imgur.com/0zLRZ5x.png)
 
 This time go back to the cheat sheet and click *Copy events to clipboard*, go back to the *Payloads* tab, clear the previous *Payload Options* and *Paste* in the events and start the attack.
 
