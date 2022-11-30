@@ -139,6 +139,7 @@ img {
 .navbar-custom.top-nav-short-permanent {
   padding-top: 0;
   padding-bottom: 0;
+  color: #b3b3b3
 }
 
 .navbar-custom .navbar-brand {
@@ -159,6 +160,7 @@ img {
 .navbar-custom.top-nav-short-permanent .navbar-brand-logo {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
+ 
 }
 
 .navbar-custom .navbar-brand-logo img {
@@ -863,6 +865,7 @@ pre {
   border: none;
   background: none;
   margin: 0;
+  color: #b3b3b3
 }
 .highlight > pre {
   background-image: linear-gradient(
@@ -871,6 +874,7 @@ pre {
   background-position-y: 0.625rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-left: 0.4375rem solid #444;
+  color: #b3b3b3
 }
 .highlight > pre:not([class~="highlight"]) { /* code block with line number */
   padding: 0;
