@@ -147,6 +147,7 @@ img {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   font-size: 1.125rem;
+  color: #b3b3b3
 }
 
 .navbar-custom .navbar-brand-logo {
@@ -192,7 +193,7 @@ img {
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav .nav-link {
   font-weight: 800;
-  color: {{ site.navbar-text-col | default: "#404040" }};
+  color: #b3b3b3
 }
 
 .navbar-toggler {
