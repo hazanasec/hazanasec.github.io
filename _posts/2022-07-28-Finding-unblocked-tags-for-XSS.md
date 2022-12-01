@@ -8,7 +8,7 @@ share-img: https://i.imgur.com/S3dhyUi.jpg
 tags: [XSS, Bug Bounty, Bypass]
 ---
 
-When you have that feeling you an input is vulnerable to XSS but something is blocking or removing the payload, you can use this relatively simple trick using Burp Suite's Intruder to discover which XSS tags and attributes are able to perform a bypass.
+When you have that feeling an input is vulnerable to XSS but something is blocking or removing the payload, you can use this relatively simple trick using Burp Suite's Intruder to discover which XSS tags and attributes are able to bypass the block.
 
 It should be somewhat obvious when you input a value containing an common XSS payload that the request is being blocked or stripped, it could be by a piece of custom code or a WAF. 
 
