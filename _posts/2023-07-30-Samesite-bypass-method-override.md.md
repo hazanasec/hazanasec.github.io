@@ -10,9 +10,9 @@ tags: [Samesite, Cookie, Bug Bounty, Bypass]
 
 # Bypassing Samesite Cookie Restrictions with Method Override
 
-Many web applications are susceptible to CSRF (Cross-Site Request Forgery) attacks on POST endpoints. Browsers, in an attempt to mitigate these attacks, have introduced the SameSite cookie attribute.
+Browsers, in an attempt to mitigate CSRF (Cross-Site Request Forgery) attacks, have introduced the [SameSite cookie attribute](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#samesite-cookie-attribute).
 
-By default, cookies are set to SameSite=Lax, which stops the cookie from being sent during cross-site requests, unless they are initiated by top-level navigations via GET requests. This effectively protects against CSRF attacks launched through POST requests.
+By default, cookies are set to `SameSite=Lax``, which stops the cookie from being sent during cross-site requests, unless they are initiated by top-level navigations via GET requests. This effectively protects against CSRF attacks launched through POST requests.
 
 However, a loophole exists. A number of web development frameworks support the override of HTTP methods at the server-side. An attacker can exploit this by altering a POST request to a GET, thereby bypassing the SameSite cookie restrictions and successfully performing CSRF attacks.
 
@@ -20,11 +20,11 @@ However, a loophole exists. A number of web development frameworks support the o
 
 Method Override is a functionality that allows the HTTP method processed by the server to be different from the one specified in the initial request. Here are some typical ways to override methods:
 
-- Hidden form fields, such as _method=PUT
-- Custom HTTP headers, for instance X-HTTP-Method-Override: DELETE
+- Hidden form fields, such as `_method=PUT``
+- Custom HTTP headers, for instance `X-HTTP-Method-Override: DELETE``
 - Server-side middleware capable of parsing these overrides
 
-These techniques are frequently used to emulate PUT, PATCH, and DELETE requests in web forms, which by design, only support GET and POST natively.
+These techniques are frequently used to emulate `PUT``, `PATCH``, and `DELETE`` requests in web forms, which by design, only support `GET`` and `POST`` natively.
 
 ## Bypassing Lax Restrictions with GET Requests 
 
@@ -41,7 +41,7 @@ As a result of top-level navigation, this script includes cookies.
 
 ## Leveraging Method Override Example
 
-Frameworks like Symfony allow the method to be overridden using `_method`` parameters:
+Frameworks like Symfony allow the method to be overridden using `_method` parameters:
 
 ```html
 <form action="https://example.com/transfer" method="POST">
@@ -51,7 +51,7 @@ Frameworks like Symfony allow the method to be overridden using `_method`` param
 </form>
 ```
 
-The server is deceived into treating the POST request as a GET request.
+The server is deceived into treating the `POST` request as a `GET` request.
 
 ## Frameworks With Built-In Support
 
@@ -82,9 +82,9 @@ Here is a summary of some popular web frameworks and how they allow method overr
 
 ## Crafting the Exploit
 
-The attacker can craft the exploit to trigger the malicious GET request:
+The attacker can craft the exploit to trigger the malicious `GET` request:
 
-```js
+```html
 <script>  
   document.location = "https://example.com/change-email?email=pwned@example.com&_method=POST";
 </script>
@@ -92,4 +92,4 @@ The attacker can craft the exploit to trigger the malicious GET request:
 
 When loaded by the unsuspecting victim, this script bypasses the Lax restrictions and performs the intended action on behalf of the victim.
 
-In conclusion, while the SameSite cookie attribute has added a layer of defense against CSRF attacks, it's essential to be aware of its limitations and potential workarounds. Method override, in certain circumstances, could be exploited by attackers to bypass these protections, emphasizing the need for additional security measures and practices in application development.
+In conclusion, while the SameSite cookie attribute has added a layer of defense against CSRF attacks, it's essential to be aware of its limitations and potential workarounds. Method override, in certain circumstances, could be exploited by attackers to bypass these protections, happy hacking!
