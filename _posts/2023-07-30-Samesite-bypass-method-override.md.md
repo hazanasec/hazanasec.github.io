@@ -28,7 +28,9 @@ These techniques are frequently used to emulate `PUT``, `PATCH``, and `DELETE`` 
 
 ## Bypassing Lax Restrictions with GET Requests 
 
-An attacker can leverage Lax restrictions by triggering a cross-site GET request from the victim's browser:
+In real-world scenarios, servers aren't always strict about the HTTP method they receive for a given endpoint. This is often the case even for endpoints that traditionally expect a form submission via a POST request. If such servers also employ Lax restrictions for their session cookies - either explicitly or due to the default settings of the browser - it opens up a potential avenue for CSRF attacks by triggering a GET request from the victim's browser.
+
+As long as the GET request initiates a top-level navigation, the browser will still append the victim's session cookie. This creates a viable path for launching a CSRF attack. Let's take a look at one of the simplest methods to execute such an attack:
 
 
 ```
@@ -37,7 +39,7 @@ An attacker can leverage Lax restrictions by triggering a cross-site GET request
 </script>
 ```
 
-As a result of top-level navigation, this script includes cookies.
+Even when ordinary GET requests are disallowed, several frameworks provide mechanisms to override the HTTP method stated in the request line. For example, the Symfony framework supports the _method parameter within forms. This parameter takes precedence over the usual method for routing decisions:
 
 ## Leveraging Method Override Example
 
@@ -51,7 +53,8 @@ Frameworks like Symfony allow the method to be overridden using `_method` parame
 </form>
 ```
 
-The server is deceived into treating the `POST` request as a `GET` request.
+The server is deceived into treating the `POST` request as a `GET` request demonstrating the principle of method override, and how it can be used to manipulate the server-side routing logic. A variety of similar parameters are supported by other frameworks, further extending the potential for such exploits:
+
 
 ## Frameworks With Built-In Support
 
@@ -82,11 +85,11 @@ Here is a summary of some popular web frameworks and how they allow method overr
 
 ## Crafting the Exploit
 
-The attacker can craft the exploit to trigger the malicious `GET` request:
+After identifying a potential request on an identified framework, as an attacker it's trivial to craft this exploit to trigger the malicious `GET` request e.g.
 
 ```html
 <script>  
-  document.location = "https://example.com/change-email?email=pwned@example.com&_method=POST";
+  document.location = "https://hazanasec.github.io/send?amount=1000&_method=POST";
 </script>
 ```
 
