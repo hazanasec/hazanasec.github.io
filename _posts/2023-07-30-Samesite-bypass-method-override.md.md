@@ -12,25 +12,25 @@ tags: [Samesite, Cookie, Bug Bounty, Bypass]
 
 Browsers, in an attempt to mitigate CSRF (Cross-Site Request Forgery) attacks, have introduced the [SameSite cookie attribute](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#samesite-cookie-attribute).
 
-By default, cookies are set to `SameSite=Lax``, which stops the cookie from being sent during cross-site requests, unless they are initiated by top-level navigations via GET requests. This effectively protects against CSRF attacks launched through POST requests.
+By default, cookies are set to `SameSite=Lax`, which stops the cookie from being sent during cross-site requests, unless they are initiated by top-level navigations via `GET` requests. This effectively protects against CSRF attacks launched through `POST` requests.
 
-However, a loophole exists. A number of web development frameworks support the override of HTTP methods at the server-side. An attacker can exploit this by altering a POST request to a GET, thereby bypassing the SameSite cookie restrictions and successfully performing CSRF attacks.
+However, a loophole exists. A number of web development frameworks support the override of HTTP methods at the server-side. An attacker can exploit this by altering a POST request to a `GET`, thereby bypassing the SameSite cookie restrictions and successfully performing CSRF attacks.
 
 ## How Method Override Works
 
 Method Override is a functionality that allows the HTTP method processed by the server to be different from the one specified in the initial request. Here are some typical ways to override methods:
 
-- Hidden form fields, such as `_method=PUT``
-- Custom HTTP headers, for instance `X-HTTP-Method-Override: DELETE``
+- Hidden form fields, such as `_method=PUT`
+- Custom HTTP headers, for instance `X-HTTP-Method-Override: DELETE`
 - Server-side middleware capable of parsing these overrides
 
-These techniques are frequently used to emulate `PUT``, `PATCH``, and `DELETE`` requests in web forms, which by design, only support `GET`` and `POST`` natively.
+These techniques are frequently used to emulate `PUT`, `PATCH`, and `DELETE` requests in web forms, which by design, only support `GET` and `POST` natively.
 
 ## Bypassing Lax Restrictions with GET Requests 
 
-In real-world scenarios, servers aren't always strict about the HTTP method they receive for a given endpoint. This is often the case even for endpoints that traditionally expect a form submission via a POST request. If such servers also employ Lax restrictions for their session cookies - either explicitly or due to the default settings of the browser - it opens up a potential avenue for CSRF attacks by triggering a GET request from the victim's browser.
+In real-world scenarios, servers aren't always strict about the HTTP method they receive for a given endpoint. This is often the case even for endpoints that traditionally expect a form submission via a `POST` request. If such servers also employ Lax restrictions for their session cookies - either explicitly or due to the default settings of the browser - it opens up a potential avenue for CSRF attacks by triggering a `GET` request from the victim's browser.
 
-As long as the GET request initiates a top-level navigation, the browser will still append the victim's session cookie. This creates a viable path for launching a CSRF attack. Let's take a look at one of the simplest methods to execute such an attack:
+As long as the `GET` request initiates a top-level navigation, the browser will still append the victim's session cookie. This creates a viable path for launching a CSRF attack. Let's take a look at one of the simplest methods to execute such an attack:
 
 
 ```
